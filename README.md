@@ -1,107 +1,98 @@
-# 🎓 Career Mentor AI Agent
+# Career Mentor AI Agent
 
-A full-stack Generative AI application that helps users create a **personalized career roadmap** based on their career goal, current skills, and available time.  
-The system uses a **Pydantic AI–powered agent** to generate structured, validated, and actionable career guidance.
-
----
-
-## 🚀 Live Demo
-
-- **Frontend (Vercel):** https://<your-frontend-url>.vercel.app  
-- **Backend API (Render):** https://<your-backend-url>.onrender.com  
-- **API Docs (Swagger):** https://<your-backend-url>.onrender.com/docs  
+A full stack generative AI agent application that helps users generate a personalized career learning roadmap based on their career goal, existing skills, and available time.
 
 ---
 
-## 🧠 Problem Statement
-
-Many students and early professionals struggle to decide:
-- *What should I learn next?*
-- *How do I plan my learning over time?*
-- *How do I turn my current skills into a clear career roadmap?*
-
-Generic advice online is often unstructured, overwhelming, or not personalized.
+## 🚀 Live Application
+- Frontend (Vercel): https://career-ai-agent-pi.vercel.app
+- Backend (Render): https://career-ai-agent-ayil.onrender.com
 
 ---
 
-## 💡 Solution
+## 🧠 What the Project Does
 
-**Career Mentor AI Agent** solves this by:
-- Taking a user’s **career goal**
-- Understanding their **current skills**
-- Respecting their **available time (months)**
-- Generating a **clear, step-by-step roadmap and practical tips**
+Users can:
+- Enter a career goal (e.g. Full Stack Developer, Data Analyst)
+- Provide current skills
+- Specify a time frame (in months)
 
-The AI agent ensures:
-- Structured outputs
-- Strong validation
-- Reliable and repeatable responses
+The AI agent then generates:
+- A structured monthly learning roadmap
+- Recommended focus areas
+- Actionable next steps
+
+This solves the real problem of **confusion and lack of direction in career planning**.
 
 ---
 
-## 🏗️ System Architecture
+## 🏗️ Tech Stack
 
 ### Frontend
-- **Next.js (App Router)**
-- Clean, minimal UI
-- Proper loading and error states
-- User-friendly form and results display
-
-### Backend
-- **FastAPI**
-- **Pydantic AI** for agent orchestration
-- OpenRouter free model usage
-- Strict request validation using Pydantic models
-
-### AI Layer
-- Built using **Pydantic AI**
-- Uses an OpenRouter-hosted free LLM
-- Produces deterministic, structured outputs
-
----
-
-## 🔁 User Flow
-
-1. User enters:
-   - Career goal (e.g., Full Stack Development)
-   - Current skills (e.g., Python, React)
-   - Timeframe in months
-2. Frontend sends validated request to backend
-3. Pydantic AI agent processes the input
-4. Backend returns:
-   - Monthly learning roadmap
-   - Practical career tips
-5. Frontend displays results clearly
-
----
-
-## 📦 Tech Stack
-
-### Frontend
-- Next.js
-- TypeScript
+- Next.js (React)
 - Tailwind CSS
+- Deployed on Vercel
 
 ### Backend
-- Python
 - FastAPI
-- Pydantic
-- Pydantic AI
-- Uvicorn
-
-### AI Provider
-- OpenRouter (Free Model)
+- Pydantic AI (Agent orchestration)
+- OpenRouter (free model)
+- Deployed on Render
 
 ---
 
-## 🧪 API Example
+## 🤖 AI Agent Details
 
-**POST** `/generate-plan`
+- Built using **Pydantic AI**
+- Uses OpenRouter free models
+- Validated inputs with Pydantic schemas
+- Clean API design
+- Error handling and retries implemented
 
-### Request Body
-```json
-{
-  "goal": "Full Stack Development",
-  "skills": ["python", "react"],
-  "timeframe_months": 6
-}
+---
+
+## 📂 Project Structure
+
+career-ai-agent/
+├── backend/
+│ ├── app/
+│ │ ├── main.py
+│ │ ├── agent.py
+│ │ └── models.py
+│ └── requirements.txt
+├── frontend/
+│ └── app/page.tsx
+└── README.md
+
+---
+
+## 🎥 Demo Video
+A 1-minute Loom video explaining:
+- What the project does
+- How it was built
+- Live demo
+
+(Face visible, no voice-over)
+
+---
+
+## 📄 Resume
+Resume uploaded in PDF format as part of submission.
+
+---
+
+## ✅ Assignment Requirements Mapping
+
+✔ Full stack generative AI application  
+✔ Built using Pydantic AI  
+✔ Live deployed (Frontend + Backend)  
+✔ Uses free OpenRouter model  
+✔ Clean UX and product flow  
+✔ Public GitHub repository  
+✔ Loom video + Resume  
+
+---
+
+## 👤 Author
+**Midhun R Achuthan**
+Final Year B.Tech – Computer Science Engineering
