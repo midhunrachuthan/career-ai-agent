@@ -1,131 +1,107 @@
-🚀 Career Mentor AI Agent
+# 🎓 Career Mentor AI Agent
 
-Full-Stack Generative AI Agent built with Pydantic AI + Next.js
+A full-stack Generative AI application that helps users create a **personalized career roadmap** based on their career goal, current skills, and available time.  
+The system uses a **Pydantic AI–powered agent** to generate structured, validated, and actionable career guidance.
 
-🔍 Problem Statement
+---
 
-Students and early-career professionals often struggle to create a clear, structured career roadmap tailored to their goals, current skills, and available time. Most resources are generic and lack personalization.
+## 🚀 Live Demo
 
-💡 Solution
+- **Frontend (Vercel):** https://<your-frontend-url>.vercel.app  
+- **Backend API (Render):** https://<your-backend-url>.onrender.com  
+- **API Docs (Swagger):** https://<your-backend-url>.onrender.com/docs  
 
-Career Mentor AI Agent is a full-stack generative AI application that acts as a personalized career planning agent.
-Users input their career goal, existing skills, and timeframe, and the agent generates a custom learning roadmap and actionable tips.
+---
 
-This project demonstrates:
+## 🧠 Problem Statement
 
-A real-world AI agent use case
+Many students and early professionals struggle to decide:
+- *What should I learn next?*
+- *How do I plan my learning over time?*
+- *How do I turn my current skills into a clear career roadmap?*
 
-Clean full-stack architecture
+Generic advice online is often unstructured, overwhelming, or not personalized.
 
-Strong validation and API design
+---
 
-End-to-end user flow
+## 💡 Solution
 
-🧠 How the AI Agent Works
+**Career Mentor AI Agent** solves this by:
+- Taking a user’s **career goal**
+- Understanding their **current skills**
+- Respecting their **available time (months)**
+- Generating a **clear, step-by-step roadmap and practical tips**
 
-The backend uses Pydantic AI to define structured inputs and outputs.
+The AI agent ensures:
+- Structured outputs
+- Strong validation
+- Reliable and repeatable responses
 
-User inputs are validated using Pydantic models.
+---
 
-The agent orchestrates reasoning to generate:
+## 🏗️ System Architecture
 
-A month-wise learning roadmap
+### Frontend
+- **Next.js (App Router)**
+- Clean, minimal UI
+- Proper loading and error states
+- User-friendly form and results display
 
-Practical career tips
+### Backend
+- **FastAPI**
+- **Pydantic AI** for agent orchestration
+- OpenRouter free model usage
+- Strict request validation using Pydantic models
 
-The agent is designed to be extensible for future model upgrades.
+### AI Layer
+- Built using **Pydantic AI**
+- Uses an OpenRouter-hosted free LLM
+- Produces deterministic, structured outputs
 
-🛠 Tech Stack
-Frontend
+---
 
-Next.js 14
+## 🔁 User Flow
 
-React
+1. User enters:
+   - Career goal (e.g., Full Stack Development)
+   - Current skills (e.g., Python, React)
+   - Timeframe in months
+2. Frontend sends validated request to backend
+3. Pydantic AI agent processes the input
+4. Backend returns:
+   - Monthly learning roadmap
+   - Practical career tips
+5. Frontend displays results clearly
 
-Tailwind CSS
+---
 
-Fetch API for backend communication
+## 📦 Tech Stack
 
-Backend
+### Frontend
+- Next.js
+- TypeScript
+- Tailwind CSS
 
-FastAPI
+### Backend
+- Python
+- FastAPI
+- Pydantic
+- Pydantic AI
+- Uvicorn
 
-Pydantic
+### AI Provider
+- OpenRouter (Free Model)
 
-Pydantic AI
+---
 
-Python 3.12+
+## 🧪 API Example
 
-Model Provider
+**POST** `/generate-plan`
 
-Compatible with OpenRouter free models
-
-Environment-based API key configuration
-
-🧪 Key Features
-
-✅ Clean form-based user input
-
-✅ Real-time validation
-
-✅ Clear roadmap generation
-
-✅ Structured AI outputs
-
-✅ Proper loading & error states
-
-✅ Modular backend architecture
-
-✅ Ready for deployment
-
-📂 Project Structure
-career-ai-agent/
-│
-├── backend/
-│   ├── app/
-│   │   ├── main.py        # FastAPI entry point
-│   │   ├── agent.py       # Pydantic AI agent logic
-│   │   ├── models.py      # Pydantic schemas
-│   │   └── __init__.py
-│   ├── requirements.txt
-│   └── .env
-│
-├── frontend/
-│   ├── app/
-│   │   ├── page.tsx
-│   │   ├── layout.tsx
-│   │   └── globals.css
-│   └── package.json
-│
-└── .gitignore
-
-⚙️ Local Setup Instructions
-1️⃣ Backend Setup
-cd backend
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload
-
-
-Backend runs at:
-
-http://127.0.0.1:8000
-
-2️⃣ Frontend Setup
-cd frontend
-npm install
-npm run dev
-
-
-Frontend runs at:
-
-http://localhost:3000
-
-🌐 Deployment
-
-Frontend: Vercel / Netlify
-
-Backend: Render / Railway / Fly.io
-
-Environment variables securely configured
+### Request Body
+```json
+{
+  "goal": "Full Stack Development",
+  "skills": ["python", "react"],
+  "timeframe_months": 6
+}
