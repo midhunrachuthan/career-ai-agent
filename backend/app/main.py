@@ -12,9 +12,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-@app.post("/generate-plan", response_model=CareerPlan)
-def generate_plan(data: CareerInput):
+@app.post("/generate_plan")
+async def generate_plan(data: CareerInput):
+    return await generate_career_plan(data)
 
     skills = [s.strip() for s in data.current_skills.split(",") if s.strip()]
 

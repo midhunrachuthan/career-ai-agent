@@ -1,13 +1,33 @@
-from dotenv import load_dotenv
-load_dotenv()  # 👈 MUST be here before Agent is created
+from pydantic_ai.exceptions import ModelError
 
-from pydantic_ai import Agent
-from app.models import CareerPlan
+async def generate_career_plan(data):
+    try:
+        result = await agent.run(
+            f"""
+            Career goal: {data.goal}
+            Skills: {data.current_skills}
+            Timeframe: {data.timeframe_months} months
+            """
+        )
+        return result.data
 
-agent = Agent(
-    model="openrouter:mistralai/mistral-7b-instruct",
-    system_prompt=(
-        "You are an expert career mentor for computer science students. "
-        "Generate a practical month-by-month learning roadmap."
-    )
-)
+    except Exception as e:
+        # 🔒 FALLBACK (VERY IMPORTANT)
+        months = data.timeframe_months
+        skills = data.current_skills.split(",")
+
+        roadmap = []
+        for i in range(1, months + 1):
+            skill = skills[(i - 1) % len(skills)]
+            roadmap.append(f"Month {i}: Focus on {skill.strip()}")
+
+        return {
+            "roadmap": roadmap,
+            "tips": [
+                "Practice daily",
+                "Build small projects",
+                "Revise fundamentals",
+                "Apply what you learn"
+            ],
+            "note": "Fallback plan used due to model unavailability"
+        }
