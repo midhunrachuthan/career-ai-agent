@@ -21,7 +21,7 @@ export default function Home() {
       setResult(null);
       setError("");
 
-      const res = await fetch("http://127.0.0.1:8000/generate-plan", {
+      const res = await fetch("https://career-ai-agent-ayil.onrender.com/generate_plan", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
